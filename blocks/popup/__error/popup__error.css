@@ -1,0 +1,9 @@
+@import url(./_hidden/popup__error_hidden.css);
+
+.popup__error {
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    display: block;
+    margin-bottom: 24px;
+}

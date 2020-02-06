@@ -1,0 +1,30 @@
+.popup__content {
+  width: 430px;
+  min-height: 330px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 34px 36px;
+}
+
+.popup__image-wrapper {
+  width: fit-content;
+  margin: auto;
+  position: relative;
+}
+
+.popup__image {
+  max-width: 80vw;
+  max-height: 80vh;
+  background-color: transparent;
+  /*background-image: url("https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg");*/
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 540px) {
+  .popup__content {
+    width: calc(100% - 60px);
+  }
+}
