@@ -1,4 +1,11 @@
-class Api {
+import PopupEdit from './popupEdit';
+import CardList from './cardList';
+
+const popupEdit = new PopupEdit(document.querySelector('.popup__edit-profile'));
+const cardContainer = document.querySelector('.places-list');
+const cardList = new CardList(cardContainer);
+
+export  default class Api {
     constructor(options) {
         this.url = options.url;
         this.headers = options.headers;

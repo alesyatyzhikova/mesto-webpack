@@ -1,5 +1,6 @@
+import Card from './card';
  //Контейнер с карточками
-class CardList {
+export  default class CardList {
     constructor(container) {
         this.container = container;
     }

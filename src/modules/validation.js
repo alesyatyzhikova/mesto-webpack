@@ -1,5 +1,3 @@
-const cardContainer = document.querySelector('.places-list');
-const popupContainer = document.querySelector('.popup__container');
 const addForm = document.forms.new;
 const editForm = document.forms.edit;
 
@@ -12,6 +10,8 @@ const errors = {
     emptyError: 'Это обязательное поле',
     urlError: 'Здесь должна быть ссылка',
 };
+
+export {place, link, name, info, errors};
 
 //Добавить ошибку
 function activateError(event) {
@@ -28,9 +28,10 @@ function handleValidate(event) {
     validate(event.target);
 }
 
+
 //Валидация формы
 function formValidate(event) {
-    [input1, input2] = event.currentTarget.elements;
+    const [input1, input2] = event.currentTarget.elements;
     const submitButton = event.currentTarget.querySelector('.popup__button');
 
     if ((input1.checkValidity() && isEnoughSymbols(input1))
@@ -97,6 +98,8 @@ function isUrl(element) {
 
     return false;
 }
+
+export {activateError, removeError, handleValidate, validate, formValidate, isEnoughSymbols, isUrl};
 
 //проверяем ошибки в полях формы
 link.addEventListener('input', handleValidate);

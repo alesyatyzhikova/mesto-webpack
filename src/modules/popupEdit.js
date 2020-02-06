@@ -1,5 +1,6 @@
+import Popup from './popup';
 //класс для формы редактирования профиля
-class PopupEdit extends Popup {
+export default class PopupEdit extends Popup {
     constructor(container) {
         super(container);
     }
@@ -9,8 +10,8 @@ class PopupEdit extends Popup {
             const userName = document.querySelector('.user-info__name').textContent;
             const userJob = document.querySelector('.user-info__job').textContent;
 
-            name.value = userName;
-            info.value = userJob;
+            this.form.name.value = userName;
+            this.form.info.value = userJob;
     }
 
     //Отправка формы

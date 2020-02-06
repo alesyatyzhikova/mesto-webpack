@@ -1,6 +1,25 @@
+import './style.css';
+import Api from './modules/api';
+import Card from './modules/card';
+import CardList from './modules/cardList';
+import Popup from './modules/popup';
+import PopupAdd from './modules/popupAdd';
+import PopupEdit from './modules/popupEdit';
+import {place, link, name, info, errors} from './modules/validation';
+import * as valid from './modules/validation';
+
 //отлично: Используются комментарии в коде.
 //Контейнер с карточками при загрузке
+
+const cardContainer = document.querySelector('.places-list');
+const popupContainer = document.querySelector('.popup__container');
+const addForm = document.forms.new;
+const editForm = document.forms.edit;
+
 const cardList = new CardList(cardContainer);
+
+// const { place, link } = addForm.elements;
+// const { name, info} = editForm.elements;
 
 //Создание попапов
 const popupAdd = new PopupAdd(document.querySelector('.popup__add-card'));
@@ -8,11 +27,12 @@ const popupEdit = new PopupEdit(document.querySelector('.popup__edit-profile'));
 const popupImage = new Popup(document.querySelector('.popup__open-image'));
 
 //Лайк и удаление карточек из контейнера
+
 const card = new Card();
 
 const api = new Api({
     //Можно лучше: Важные данные, такие как ключ и ip адрес, изменение которых может легко сломать код, принято выносить в константы. Константы Именуются snack кейсом в верхнем регистре. EXAMPLE_VARIABLE. Так другие разработчики будут знать, что изменять эти данные нельзя.
-    url: "http://95.216.175.5/cohort6",
+    url: "http://praktikum.tk/cohort6",
     headers: {
         authorization: '7ceba2bd-b16c-4485-905f-e1584b27ca55',
         "Content-Type": "application/json"
@@ -73,14 +93,14 @@ document.addEventListener('click', function (event) {
 //Отправка формы добавления карточки
 popupAdd.form.addEventListener('submit', function (event) {
     event.preventDefault();
-    popupAdd.submit();
+    popupAdd.submit(event);
 });
 
 //Отправка формы редактирования контактов
 popupEdit.form.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    api.editProfile('/users/me')
+    api.editProfile('/users/me', editForm)
         .then(res => {
             document.querySelector('.user-info__name').textContent = res.name;
             document.querySelector('.user-info__job').textContent = res.about;
@@ -103,6 +123,8 @@ api.getInitialCards('/cards');
 
 //Загрузка профиля с сервера
 api.loadProfile('/users/me');
+
+
 
 //Отлично: порядок в коде.
 

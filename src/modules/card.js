@@ -1,5 +1,5 @@
 //Создаем карточку
-class Card {
+export default class Card {
     constructor() {}
 
     create(name, link) {
