@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/alesyatyzhikova/mesto-webpack/issues"
   },
-  "homepage": "https://alesyatyzhikova.github.io/mesto-webpack/src",
+  "homepage": "https://alesyatyzhikova.github.io/mesto-webpack",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
