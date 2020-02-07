@@ -1,5 +1,5 @@
 //Общий класс для попапов
-class Popup {
+export default class Popup {
     constructor(container) {
         this.container = container;
         this.form = container.querySelector('.popup__form');
